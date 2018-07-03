@@ -8,13 +8,13 @@ class UploadData extends Component {
                 action='http://localhost:3000/upload'
                 method='post'
                 encType="multipart/form-data">
-                <div class="form-row align-items-center">
+                <div className="form-row align-items-center">
                     <input type="hidden" value="12345" />
                     <div className="col-auto">
                         <input type="Text" className="form-control" placeholder="vname" />
                     </div>
-                    <div class="col-auto">
-                        <input type="file" name="sampleFile" class="form-control-file" id="exampleFormControlFile1" />
+                    <div className="col-auto">
+                        <input type="file" name="sampleFile" className="form-control-file" id="exampleFormControlFile1" />
                     </div>
                     <div className="col-auto">
                         <input type='submit' className="btn btn-primary" value='Upload!' />

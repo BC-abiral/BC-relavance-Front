@@ -5,9 +5,7 @@ class Ppage extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Pname</h1>
-                <hr />
-                <ShowRelavance />
+                <ShowRelavance pid={this.props.match.params.pname} />
             </div >
         )
     }

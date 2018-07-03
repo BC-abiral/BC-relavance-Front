@@ -1,10 +1,32 @@
 import React, { Component } from 'react'
+import { getProjectDetail } from '../../Utils/Services'
 import UploadData from './UploadData'
 
 class ShowRelavance extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            pname: ''
+        }
+    }
+
+    componentDidMount() {
+        const id = this.props.pid
+        if (this.state.pname === '') {
+            getProjectDetail(id).then((resp) => {
+                console.log(resp.data.name)
+                this.setState({
+                    pname: resp.data.name
+                })
+            })
+        }
+    }
+
     render() {
         return (
             <div>
+                <h1>{this.state.pname}</h1>
+                <hr />
                 <UploadData />
                 <br />
                 <table className="table table-strip table-hover">
