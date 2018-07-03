@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { getProjectDetail } from '../../Utils/Services'
+import { Link } from 'react-router-dom'
+import { getProjectDetail, getVersionForProject } from '../../Utils/Services'
 import UploadData from './UploadData'
 
 class ShowRelavance extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            pname: ''
+            pname: '',
+            data: []
         }
     }
 
@@ -14,20 +16,26 @@ class ShowRelavance extends Component {
         const id = this.props.pid
         if (this.state.pname === '') {
             getProjectDetail(id).then((resp) => {
-                console.log(resp.data.name)
                 this.setState({
                     pname: resp.data.name
                 })
             })
         }
+
+        getVersionForProject(id).then(resp => {
+            this.setState({
+                data: resp.data
+            })
+        })
     }
 
     render() {
+        const { data } = this.state
         return (
             <div>
                 <h1>{this.state.pname}</h1>
                 <hr />
-                <UploadData />
+                <UploadData pid={this.props.pid} />
                 <br />
                 <table className="table table-strip table-hover">
                     <thead>
@@ -39,18 +47,16 @@ class ShowRelavance extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>V1</td>
-                            <td>0.5</td>
-                            <td><a href="p1/123/view">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>V2</td>
-                            <td>-</td>
-                            <td><a href="p1/123/view">Calculate</a></td>
-                        </tr>
+                        {
+                            data.map(value => (
+                                <tr key={value._id}>
+                                    <td>1</td>
+                                    <td>{value.name}</td>
+                                    <td>{value.score}</td>
+                                    <td><Link to={`${this.props.pid}/${value._id}/view`}>View</Link></td>
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>
