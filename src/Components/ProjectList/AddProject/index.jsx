@@ -34,7 +34,7 @@ class AddProject extends Component {
             <form onSubmit={this.handleSubmit}>
                 <div className="form-row align-items-center">
                     <div className="col-auto">
-                        <input type="Text" className="form-control" onChange={this.handleChange} />
+                        <input type="Text" className="form-control" value={this.state.pname} onChange={this.handleChange} />
                         {this.state.error ? <span>{this.state.error}</span> : ''}
                     </div>
                     <div className="col-auto">

@@ -33,7 +33,7 @@ class ShowRelavance extends Component {
         const { data } = this.state
         return (
             <div>
-                <h1>{this.state.pname}</h1>
+                <h1><Link to='/'>Back</Link> - {this.state.pname}</h1>
                 <hr />
                 <UploadData pid={this.props.pid} />
                 <br />
@@ -48,12 +48,12 @@ class ShowRelavance extends Component {
                     </thead>
                     <tbody>
                         {
-                            data.map(value => (
+                            data.map((value, index) => (
                                 <tr key={value._id}>
-                                    <td>1</td>
+                                    <td>{index + 1}</td>
                                     <td>{value.name}</td>
                                     <td>{value.score}</td>
-                                    <td><Link to={`${this.props.pid}/${value._id}/view`}>View</Link></td>
+                                    <td><Link to={`${this.props.pid}/${value.name}/view`}>View</Link></td>
                                 </tr>
                             ))
                         }

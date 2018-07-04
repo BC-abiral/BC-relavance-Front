@@ -1,9 +1,13 @@
 import axios from './axios'
 
-export const getAllProject = () => (axios.get('/projects'))
-export const getProjectDetail = (id) => (axios.get(`/projects/${id}`))
-export const getVersionForProject = (pid) => (axios.get(`/projects/${pid}/versions`))
+const PROJECTS = "projects"
+const VERSIONS = "versions"
+const UPLOAD = "upload"
 
-export const addProject = (pname) => (axios.post('/projects', { name: pname }))
+export const getAllProject = () => (axios.get(`/${PROJECTS}`))
+export const getProjectDetail = (id) => (axios.get(`/${PROJECTS}/${id}`))
+export const getVersionForProject = (pid) => (axios.get(`/${PROJECTS}/${pid}/${VERSIONS}`))
 
-export const uploadNewVersion = (data) => (axios.post('/upload', data))
+export const addProject = (pname) => (axios.post(`/${PROJECTS}`, { name: pname }))
+export const showAllDataForVersion = (pid, vtag) => (axios.get(`/${PROJECTS}/${pid}/${VERSIONS}/${vtag}`))
+export const uploadNewVersion = (data) => (axios.post(`/${UPLOAD}`, data))
