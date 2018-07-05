@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { getProjectDetail, getVersionForProject } from '../../Utils/Services'
 import UploadData from './UploadData'
+import ShowScore from './ShowScore'
 
 class ShowRelavance extends Component {
     constructor(props) {
@@ -52,7 +53,9 @@ class ShowRelavance extends Component {
                                 <tr key={value._id}>
                                     <td>{index + 1}</td>
                                     <td>{value.name}</td>
-                                    <td>{value.score}</td>
+                                    <td>
+                                        <ShowScore pid={this.props.pid} value={value} />
+                                    </td>
                                     <td><Link to={`${this.props.pid}/${value.name}/view`}>View</Link></td>
                                 </tr>
                             ))

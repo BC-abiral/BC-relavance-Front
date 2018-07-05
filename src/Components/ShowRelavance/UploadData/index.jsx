@@ -29,7 +29,7 @@ class UploadData extends Component {
 
     onFormSubmit = (e) => {
         e.preventDefault();
-        const { file, pid, vname } = this.state
+        const { file, vname } = this.state
         if (file !== null && vname !== '') {
             var bodyFormData = new FormData()
             bodyFormData.set('sampleFile', this.state.file)

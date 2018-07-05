@@ -10,8 +10,8 @@ class AddProject extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault()
-        const { pname, error } = this.state
-        if (pname == '')
+        const { pname } = this.state
+        if (pname === '')
             this.setState({
                 error: 'Please specify Project Name'
             })

@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
+import { updateRelavance } from '../../../Utils/Services'
 
 class PutRelavance extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            id: this.props.value._id,
             show: false,
-            relavance: this.props.value.relavance
+            relavance: this.props.value.relavance,
+            error: false
         }
     }
 
     componentDidMount() {
-        if (this.state.relavance == '') {
+        if (this.state.relavance === '') {
             this.setState({
                 show: true
             })
@@ -28,7 +31,13 @@ class PutRelavance extends Component {
     }
 
     saveRelavance = () => {
-        alert('save button clicked')
+        if (this.state.relavance !== "")
+            updateRelavance(this.state.relavance, this.state.id).then(resp => {
+                console.log(resp.data)
+                this.setState({
+                    show: false
+                })
+            })
     }
     render() {
         const { relavance, show } = this.state
@@ -37,7 +46,9 @@ class PutRelavance extends Component {
             return (
                 <form>
                     <div className="input-group">
-                        <select className="custom-select" value={this.state.relavance} onChange={this.dropdownChanged}>
+                        <select className="custom-select"
+                            value={this.state.relavance}
+                            onChange={this.dropdownChanged}>
                             <option value="">Choose...</option>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
@@ -53,7 +64,7 @@ class PutRelavance extends Component {
         } else {
             return (
                 <button className="btn btn-link" onClick={this.toggleShow}>
-                    {relavance == '1' ? 'Yes' : 'No'}
+                    {relavance === '1' ? 'Yes' : 'No'}
                 </button>
             )
         }
