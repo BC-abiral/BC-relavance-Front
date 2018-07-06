@@ -27,6 +27,7 @@ class UrlData extends Component {
                     <tr>
                         <th>#</th>
                         <th>URL</th>
+                        <th>Classifier</th>
                         <th>Relevance</th>
                     </tr>
                 </thead>
@@ -41,6 +42,7 @@ class UrlData extends Component {
                                             {value.originUrl}
                                         </a>
                                     </td>
+                                    <td>{value.classifierScore}</td>
                                     <td>
                                         <PutRelavance value={value} />
                                     </td>

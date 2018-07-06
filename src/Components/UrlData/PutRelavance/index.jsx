@@ -8,6 +8,7 @@ class PutRelavance extends Component {
             id: this.props.value._id,
             show: false,
             relavance: this.props.value.relavance,
+            classifierScore: this.props.value.classifierScore,
             error: false
         }
     }
@@ -40,7 +41,7 @@ class PutRelavance extends Component {
             })
     }
     render() {
-        const { relavance, show } = this.state
+        const { relavance, show, classifierScore } = this.state
 
         if (show) {
             return (
@@ -64,7 +65,7 @@ class PutRelavance extends Component {
         } else {
             return (
                 <button className="btn btn-link" onClick={this.toggleShow}>
-                    {relavance === '1' ? 'Yes' : 'No'}
+                    {relavance === '1' ? 'Yes' : 'No'} {relavance !== classifierScore ? <span class="badge" style={{ color: 'red' }}>not matched</span> : ''}
                 </button>
             )
         }
