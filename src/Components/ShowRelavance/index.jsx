@@ -43,7 +43,7 @@ class ShowRelavance extends Component {
                         <tr>
                             <th>#</th>
                             <th>Version Name</th>
-                            <th>Relavence Score</th>
+                            <th>Relevance Score</th>
                             <th>Action</th>
                         </tr>
                     </thead>

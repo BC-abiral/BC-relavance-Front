@@ -27,7 +27,7 @@ class UrlData extends Component {
                     <tr>
                         <th>#</th>
                         <th>URL</th>
-                        <th>Relavance</th>
+                        <th>Relevance</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +37,7 @@ class UrlData extends Component {
                                 <tr key={value._id}>
                                     <td>{index + 1}</td>
                                     <td className="url_table">
-                                        <a href="https://www.fortlauderdale.gov/home/showdocument?id=18838" target="_blank" rel="noopener noreferrer">
+                                        <a href={value.originUrl} target="_blank" rel="noopener noreferrer">
                                             {value.originUrl}
                                         </a>
                                     </td>
