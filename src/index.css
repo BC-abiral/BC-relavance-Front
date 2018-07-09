@@ -11,3 +11,9 @@ body {
     white-space: nowrap;
     overflow: hidden;
 }
+
+.compare {
+    width: 300px;
+    float: right;
+    margin-bottom: 15px;
+}

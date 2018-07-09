@@ -16,3 +16,5 @@ export const uploadNewVersion = (data) => (axios.post(`/${UPLOAD}`, data))
 
 export const updateRelavance = (value, data_id) => (axios.post(`/${VERSIONS}/${data_id}`, { relavance: `${value}` }))
 export const updateRemark = (value, data_id) => (axios.post(`/${VERSIONS}/${data_id}/remark`, { remark: `${value}` }))
+
+export const showDifference = (A, B, pid) => (axios.post(`/${PROJECTS}/${pid}/compare`, { a: `${A}`, b: `${B}` }))

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UrlData from '../Components/UrlData';
+import ShowDifference from '../Components/ShowDifference'
 import { getProjectDetail } from '../Utils/Services'
 
 class Detail extends Component {
@@ -32,6 +33,7 @@ class Detail extends Component {
                 </h1>
                 <hr />
                 <Link to="/">Back to Project Page </Link>
+                <ShowDifference params={this.props.match.params} />
                 <br /><br />
                 <UrlData params={this.props.match.params} />
             </div>
