@@ -14,4 +14,5 @@ export const calculateScore = (pid, vtag) => (axios.get(`/${PROJECTS}/${pid}/${V
 
 export const uploadNewVersion = (data) => (axios.post(`/${UPLOAD}`, data))
 
-export const updateRelavance = (value, data_id) => (axios.post(`/${PROJECTS}/${data_id}`, { relavance: `${value}` }))
+export const updateRelavance = (value, data_id) => (axios.post(`/${VERSIONS}/${data_id}`, { relavance: `${value}` }))
+export const updateRemark = (value, data_id) => (axios.post(`/${VERSIONS}/${data_id}/remark`, { remark: `${value}` }))

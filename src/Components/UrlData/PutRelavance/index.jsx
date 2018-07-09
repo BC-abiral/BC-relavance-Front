@@ -65,7 +65,7 @@ class PutRelavance extends Component {
         } else {
             return (
                 <button className="btn btn-link" onClick={this.toggleShow}>
-                    {relavance === '1' ? 'Yes' : 'No'} {relavance !== classifierScore ? <span class="badge" style={{ color: 'red' }}>not matched</span> : ''}
+                    {relavance === '1' ? 'Yes' : 'No'} {relavance !== classifierScore ? <span className="badge" style={{ color: 'red' }}>not matched</span> : ''}
                 </button>
             )
         }
