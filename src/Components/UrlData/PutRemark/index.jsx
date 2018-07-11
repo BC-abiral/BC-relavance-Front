@@ -48,6 +48,9 @@ class PutRemark extends Component {
                             <button className="btn btn-outline-primary" type="button" onClick={this.saveRemark}>
                                 Save
                             </button>
+                            <button className="btn btn-outline-primary" type="button" onClick={this.toggleShow}>
+                                Cancel
+                            </button>
                         </div>
                     </div>
                     {error !== '' ? <span className="text-danger">{error}</span> : ''}
