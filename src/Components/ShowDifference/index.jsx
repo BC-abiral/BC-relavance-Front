@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getVersionForProject, showDifference } from '../../Utils/Services'
+import PutRelavance from '../UrlData/PutRelavance';
 
 class ShowDifference extends Component {
     constructor(props) {
@@ -75,12 +76,12 @@ class ShowDifference extends Component {
                                         <th>URL</th>
                                         <th>Classifier</th>
                                         <th>Relevance</th>
-                                        <th>Remarks</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
                                         compare_data.map((value, index) => (
+                                            value.relavance == '1' &&
                                             <tr key={value._id}>
                                                 <td>{index + 1}</td>
                                                 <td className="url_table">
@@ -90,10 +91,7 @@ class ShowDifference extends Component {
                                                 </td>
                                                 <td>{value.classifierScore}</td>
                                                 <td>
-                                                    {value.relavance}
-                                                </td>
-                                                <td>
-                                                    {value.remark}
+                                                    <PutRelavance value={value} />
                                                 </td>
                                             </tr>
                                         ))

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PutRelavance from './PutRelavance'
-import PutRemark from './PutRemark'
 import { showAllDataForVersion } from '../../Utils/Services'
 
 class UrlData extends Component {
@@ -30,7 +29,6 @@ class UrlData extends Component {
                         <th>URL</th>
                         <th>Classifier</th>
                         <th>Relevance</th>
-                        <th>Remarks</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,9 +45,6 @@ class UrlData extends Component {
                                     <td>{value.classifierScore}</td>
                                     <td>
                                         <PutRelavance value={value} />
-                                    </td>
-                                    <td>
-                                        <PutRemark value={value} />
                                     </td>
                                 </tr>
                             )) : "No data Found"

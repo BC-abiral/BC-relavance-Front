@@ -40,20 +40,30 @@ class PutRemark extends Component {
         if (show)
             return (
                 <div>
-                    <div className="input-group">
-                        <textarea className="form-control rounded-0"
-                            onChange={this.onChange}
-                            value={this.state.remark}></textarea>
-                        <div className="input-group-append">
-                            <button className="btn btn-outline-primary" type="button" onClick={this.saveRemark}>
-                                Save
-                            </button>
-                            <button className="btn btn-outline-primary" type="button" onClick={this.toggleShow}>
-                                Cancel
-                            </button>
+                    <div class="modal fade show" style={{ display: 'block' }}>
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Remark</h4>
+                                    <button className="close" type="button" onClick={this.toggleShow}>
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea className="form-control rounded-0"
+                                        onChange={this.onChange}
+                                        value={this.state.remark} />
+                                    {error !== '' ? <span className="text-danger">{error}</span> : ''}
+                                </div>
+                                <div className="modal-footer">
+                                    <button className="btn btn-primary" type="button" onClick={this.saveRemark}>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    {error !== '' ? <span className="text-danger">{error}</span> : ''}
+                    <div className="modal-backdrop fade show"></div>
                 </div>
             )
         else
@@ -61,11 +71,11 @@ class PutRemark extends Component {
                 <div>
                     {
                         remark !== '' ?
-                            <button className="btn btn-link" onClick={this.toggleShow}>
-                                {remark}
+                            <button className="btn btn-link" onClick={this.toggleShow} style={{color:'green'}}>
+                                <i class="fas fa-eye"></i>
                             </button> :
-                            <button className="btn btn-link" onClick={this.toggleShow}>
-                                PutRemark
+                            <button className="btn btn-link" onClick={this.toggleShow} style={{color:'red'}}>
+                                <i class="fas fa-edit"></i>
                             </button>
                     }
                 </div>

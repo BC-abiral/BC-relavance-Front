@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { updateRelavance } from '../../../Utils/Services'
+import PutRemark from '../PutRemark'
 
 class PutRelavance extends Component {
     constructor(props) {
@@ -64,9 +65,12 @@ class PutRelavance extends Component {
             )
         } else {
             return (
-                <button className="btn btn-link" onClick={this.toggleShow}>
-                    {relavance === '1' ? 'Yes' : 'No'} {relavance !== classifierScore ? <span className="badge" style={{ color: 'red' }}>not matched</span> : ''}
-                </button>
+                <div className="btn-group" role="group">
+                    <button className="btn btn-link" onClick={this.toggleShow}>
+                        {relavance === '1' ? 'Yes' : 'No'}
+                    </button>
+                    {relavance !== classifierScore ? <PutRemark value={this.props.value} /> : ''}
+                </div>
             )
         }
     }
