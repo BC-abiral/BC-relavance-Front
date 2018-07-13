@@ -57,9 +57,9 @@ class ProjectList extends Component {
                     <tbody>
                         {
                             projects ?
-                                projects.map(value => (
+                                projects.map((value, index) => (
                                     <tr key={value._id}>
-                                        <td>1</td>
+                                        <td>{index + 1}</td>
                                         <td><Link to={`/${value._id}`}>{value.name}</Link></td>
                                         <td>-</td>
                                     </tr>
