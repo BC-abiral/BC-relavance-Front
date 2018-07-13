@@ -55,6 +55,8 @@ class ShowDifference extends Component {
                                 data.map(value => {
                                     if (value.name !== B)
                                         return <option key={value._id} value={value.name} > {value.name}</option>
+                                    else
+                                        return null
                                 })
                             }
                         </select>
@@ -68,7 +70,7 @@ class ShowDifference extends Component {
 
                 {
                     compare_data.length !== 0 ?
-                        <div class="Show Result">
+                        <div className="Show Result">
                             <table className="table">
                                 <thead>
                                     <tr>
@@ -81,7 +83,7 @@ class ShowDifference extends Component {
                                 <tbody>
                                     {
                                         compare_data.map((value, index) => (
-                                            value.relavance == '1' &&
+                                            value.relavance === '1' &&
                                             <tr key={value._id}>
                                                 <td>{index + 1}</td>
                                                 <td className="url_table">

@@ -7,13 +7,19 @@ class ProjectList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            projects: []
+            projects: [],
+            admin: ''
         }
     }
 
     componentDidMount() {
+        if (this.state.admin === '' && localStorage.admin !== undefined) {
+            this.setState({
+                admin: localStorage.admin
+            })
+        }
+
         getAllProject().then((resp) => {
-            console.log(resp.data)
             this.setState({
                 projects: resp.data
             })
@@ -34,7 +40,11 @@ class ProjectList extends Component {
         const { projects } = this.state
         return (
             <div>
-                <AddProject addfunction={this.addProject} />
+                {
+                    this.state.admin === "true" ?
+                        <AddProject addfunction={this.addProject} />
+                        : <div>Not authorized to add project</div>
+                }
                 <br />
                 <table className="table table-hover">
                     <thead>

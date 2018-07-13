@@ -40,16 +40,16 @@ class PutRemark extends Component {
         if (show)
             return (
                 <div>
-                    <div class="modal fade show" style={{ display: 'block' }}>
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Remark</h4>
+                    <div className="modal fade show" style={{ display: 'block' }}>
+                        <div className="modal-dialog modal-lg">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h4 className="modal-title">Remark</h4>
                                     <button className="close" type="button" onClick={this.toggleShow}>
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div className="modal-body">
                                     <textarea className="form-control rounded-0"
                                         onChange={this.onChange}
                                         value={this.state.remark} />
@@ -72,10 +72,10 @@ class PutRemark extends Component {
                     {
                         remark !== '' ?
                             <button className="btn btn-link" onClick={this.toggleShow} style={{color:'green'}}>
-                                <i class="fas fa-eye"></i>
+                                <i className="fas fa-eye"></i>
                             </button> :
                             <button className="btn btn-link" onClick={this.toggleShow} style={{color:'red'}}>
-                                <i class="fas fa-edit"></i>
+                                <i className="fas fa-edit"></i>
                             </button>
                     }
                 </div>

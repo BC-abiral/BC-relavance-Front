@@ -9,12 +9,20 @@ class ShowRelavance extends Component {
         super(props)
         this.state = {
             pname: '',
-            data: []
+            data: [],
+            admin: ''
         }
     }
 
     componentDidMount() {
         const id = this.props.pid
+
+        if (this.state.admin === '' && localStorage.admin !== undefined) {
+            this.setState({
+                admin: localStorage.admin
+            })
+        }
+
         if (this.state.pname === '') {
             getProjectDetail(id).then((resp) => {
                 this.setState({
@@ -36,7 +44,11 @@ class ShowRelavance extends Component {
             <div>
                 <h1><Link to='/'>Back</Link> - {this.state.pname}</h1>
                 <hr />
-                <UploadData pid={this.props.pid} />
+                {
+                    this.state.admin === "true" ?
+                        <UploadData pid={this.props.pid} />
+                        : <div>Not Authorized to add versions</div>
+                }
                 <br />
                 <table className="table table-strip table-hover">
                     <thead>
